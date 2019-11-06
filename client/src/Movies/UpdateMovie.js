@@ -11,11 +11,24 @@ const UpdateMovie = props => {
       .catch(err => console.log(err.response));
   }, []);
 
+  const handleChange = e => {
+    console.log(e);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    // console.log(data)
+  };
+
   console.log(movie, 'update');
   return (
-    <div>
-      <h1>lorem </h1>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input onChange={e => handleChange(e)} placeholder='Title' />
+      <input onChange={e => handleChange(e)} placeholder='Director' />
+      <input onChange={e => handleChange(e)} placeholder='Metascore' />
+      <input onChange={e => handleChange(e)} placeholder='Actors' />
+      <button type='submit'>Update</button>
+    </form>
   );
 };
 
