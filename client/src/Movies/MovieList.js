@@ -19,7 +19,6 @@ export default class MovieList extends Component {
   }
 
   deleteMovie = (e, id) => {
-    e.preventDefault();
     e.stopPropagation();
 
     // save the movie in case of error with api
@@ -33,7 +32,7 @@ export default class MovieList extends Component {
       // api call to delete movie
       axios
         .delete(`http://localhost:5000/api/movies/${id}`)
-        .then(res => console.log('User was deleted'))
+        .then(res => console.log(res))
         .catch(err => {
           console.log(err);
           // Re add the movie if there is an error
