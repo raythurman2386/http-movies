@@ -26,10 +26,17 @@ const UpdateMovie = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    // Break the string of stars down to an array
     const starsArr = movie.stars.split(',');
     console.log(starsArr);
-    setMovie({ ...movie, stars: starsArr });
-    console.log(movie, 'updated movie');
+
+    axios
+      .put(`http://localhost:5000/api/movies/${movie.id}`, {
+        ...movie,
+        stars: starsArr
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
 
   return (
