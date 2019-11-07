@@ -35,7 +35,7 @@ const UpdateMovie = props => {
         ...movie,
         stars: starsArr
       })
-      .then(res => console.log(res))
+      .then(res => props.history.push('/'))
       .catch(err => console.log(err));
   };
 
