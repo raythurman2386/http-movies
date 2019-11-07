@@ -6,7 +6,7 @@ const UpdateMovie = props => {
     id: '',
     title: '',
     director: '',
-    metascore: undefined,
+    metascore: '',
     stars: undefined
   });
 
@@ -27,14 +27,11 @@ const UpdateMovie = props => {
   const handleSubmit = e => {
     e.preventDefault();
     // Break the string of stars down to an array
-    const starsArr = movie.stars.split(',');
-    console.log(starsArr);
+    const starsArr = movie.stars.toString().split(',');
+    const updatedMovie = { ...movie, stars: starsArr };
 
     axios
-      .put(`http://localhost:5000/api/movies/${movie.id}`, {
-        ...movie,
-        stars: starsArr
-      })
+      .put(`http://localhost:5000/api/movies/${movie.id}`, updatedMovie)
       .then(res => props.history.push('/'))
       .catch(err => console.log(err));
   };
@@ -56,7 +53,7 @@ const UpdateMovie = props => {
         onChange={e => handleChange(e)}
       />
       <input
-        type='number'
+        type='text'
         name='metascore'
         value={movie.metascore}
         placeholder='Metascore'
