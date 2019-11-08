@@ -19,9 +19,9 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
-      <div className='delete-button' onClick={e => props.deleteMovie(e, id)}>
+      <button className='delete-button' onClick={e => props.deleteMovie(e, id)}>
         Delete
-      </div>
+      </button>
     </div>
   );
 };
