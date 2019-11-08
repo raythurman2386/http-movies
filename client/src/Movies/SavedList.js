@@ -18,7 +18,17 @@ export default class SavedList extends Component {
           );
         })}
         <div className='home-button'>
-          <Link to='/'>Home</Link>
+          <Link
+            to='/'
+            style={{
+              marginRight: '15px',
+              padding: '5px',
+              borderRight: '1px solid #888'
+            }}
+          >
+            Home
+          </Link>
+          <Link to='/add-movie'>Add</Link>
         </div>
       </div>
     );
