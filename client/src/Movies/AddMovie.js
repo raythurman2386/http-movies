@@ -25,7 +25,7 @@ const AddMovie = props => {
     console.log(updatedMovie);
     axios
       .post(`http://localhost:5000/api/movies`, updatedMovie)
-      .then(res => console.log(res))
+      .then(res => props.history.push('/'))
       .catch(err => console.log(err));
   };
 
